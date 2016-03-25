@@ -43,3 +43,7 @@ receive chat from others.
 **You will be asked for a handle, if you want your messages to be labelled correctly in both sender and receiver windows 
 make sure the handles you enter into both windows match exactly (case sensitive)**
 
+## To Do
+- Fix stability of server when a client disconnects
+- Add encryption
+
