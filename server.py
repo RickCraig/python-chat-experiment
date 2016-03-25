@@ -41,20 +41,14 @@ class Server:
         self.connections.append(conn);
 
         #infinite loop so that function do not terminate and thread do not end.
-        while True:
+        active = True
+        while active:
             try:
-                ready_to_read, ready_to_write, in_error = \
-                    select.select([conn,], [conn,], [], 5)
-            except select.error:
-                self.connections.remove(connection)
-                conn.shutdown(2)    # 0 = done receiving, 1 = done sending, 2 = both
-                conn.close()
-                # connection error event here, maybe reconnect
-                print 'connection error'
-                break
-
-            data = conn.recv(1024)
-            self.broadcast(data)
+                data = conn.recv(1024)
+                self.broadcast(data)
+            except:
+                # Connection is no longer active
+                self.connections.remove(conn)
 
     def broadcast(self, message):
         """Broadcasts and incoming message to all connections"""
