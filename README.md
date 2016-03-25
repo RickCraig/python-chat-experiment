@@ -44,6 +44,7 @@ receive chat from others.
 make sure the handles you enter into both windows match exactly (case sensitive)**
 
 ## To Do
-- Fix stability of server when a client disconnects
+- Fix stability of server when a client disconnects - Done
 - Add encryption
+- Add server administration commands (remove unnecesary outputs)
 
